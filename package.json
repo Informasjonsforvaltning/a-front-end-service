@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server  --hot --inline --config webpack/dev.config.js",
+    "mock:start": "cd mock && docker-compose up",
+    "mock:start-detached": "cd mock && docker-compose up -d",
+    "mock:stop": "cd mock && docker-compose down",
     "lint": "eslint",
     "lint:project": "eslint --ext tsx,ts,jsx,js,json,html ./",
     "build:prod": "npm-run-all build:webpack:prod",

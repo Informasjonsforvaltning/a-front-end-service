@@ -1,0 +1,12 @@
+version: '3'
+services:
+  a-backend-service-mock:
+    image: stoplight/prism:3
+    ports: 
+      - 8021:8021
+    command: >
+      mock -p 8021 --host 0.0.0.0
+      https://raw.githubusercontent.com/Informasjonsforvaltning/a-backend-service/master/src/main/resources/specification/a-backend-service.yaml
+
+     
+
