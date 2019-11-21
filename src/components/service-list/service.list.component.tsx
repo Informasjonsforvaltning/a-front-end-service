@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ServiceListItem } from './service-list-item/service-list-item.component';
 
 const placeholder = [
@@ -9,7 +9,7 @@ const placeholder = [
 export const ServiceList = () => (
   <ul>
     {placeholder.map((value, index) => (
-      <ServiceListItem key={index} name={value.name} version={value.version} />
+      <ServiceListItem key={index} version={value} />
     ))}
   </ul>
 );

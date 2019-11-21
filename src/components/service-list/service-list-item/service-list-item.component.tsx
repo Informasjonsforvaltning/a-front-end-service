@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React from 'react';
+import { Version } from '../../../types';
 
-export type VersionProps = { name: string; version: string };
+export interface Props {
+  version: Version;
+}
 
-export const ServiceListItem = (props: VersionProps) => (
+export const ServiceListItem = ({ version: { name, version } }: Props) => (
   <li>
-  running version for {props.name} is{props.version}
+    running version for {name} is{version}
   </li>
 );

@@ -30,12 +30,12 @@
   ],
   "rules": {
 
-    "prettier/prettier": [
+    "prettier/prettier": [ 
       "error",
       {
         "semi": true,
         "singleQuote": true,
-        "jsxSingleQuote": false
+        "jsxSingleQuote": true
       }
     ],
     "import/no-extraneous-dependencies": "off",

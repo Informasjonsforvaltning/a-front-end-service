@@ -2,9 +2,13 @@
   "name": "a-front-end-service",
   "version": "1.0.0",
   "description": "\"An example frontend service for Felles Datakatalog\"",
-  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">= 12.13.0"
+  },
   "scripts": {
-    "dev": "webpack-dev-server  --hot --inline --config webpack/dev.config.js",
+    "start": "webpack-dev-server  --hot --inline --config-register @babel/register --config webpack/dev.config.js",
+    "start:with-mock": "npm run mock:start:d && npm run start",
     "mock:start": "cd mock && bash start-mock.sh",
     "mock:start:d": "cd mock && bash start-mock-d.sh",
     "mock:stop": "cd mock && docker-compose down",
@@ -13,7 +17,7 @@
     "build:prod": "npm-run-all build:webpack:prod",
     "build:webpack:prod": "webpack --config-register @babel/register --config webpack/prod.config.js",
     "test": "test",
-    "build": "webpack --config webpack/prod.config.js"
+    "build": "webpack --config-register @babel/register --config webpack/prod.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,8 @@
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/register": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.7",
     "@types/react": "^16.9.11",
@@ -29,6 +35,9 @@
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
+    "base-href-webpack-plugin": "^2.0.0",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.5.0",
@@ -52,9 +61,6 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "express": "^4.17.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-hot-loader": "^4.12.17"
