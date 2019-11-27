@@ -1,5 +1,9 @@
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { ServiceList } from './components/service-list/service.list.component';
 
-ReactDom.render(<ServiceList />, document.getElementById('root'));
+render(<ServiceList />, document.getElementById('root'));
+
+if ((module as any).hot) {
+  (module as any).hot.accept();
+}
