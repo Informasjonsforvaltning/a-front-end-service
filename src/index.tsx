@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { ServiceList } from './components/service-list/service.list.component';
+import { ServiceList } from './components/service-list';
 
 render(<ServiceList />, document.getElementById('root'));
 

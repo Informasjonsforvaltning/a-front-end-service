@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServiceListItem } from './service-list-item/service-list-item.component';
+import { ServiceListItem } from './service-list-item';
 
 const placeholder = [
   { name: 'hajjlskfjlaksfkk', version: '156371537' },

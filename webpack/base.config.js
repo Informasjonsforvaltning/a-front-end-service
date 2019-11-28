@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { BaseHrefWebpackPlugin } from 'base-href-webpack-plugin';
