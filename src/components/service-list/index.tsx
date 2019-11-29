@@ -1,10 +1,7 @@
 import React from 'react';
 import { ServiceListItem } from './service-list-item';
 
-const placeholder = [
-  { name: 'hajjlskfjlaksfkk', version: '156371537' },
-  { name: 'vjsklgsdg', version: '567657657' }
-];
+const placeholder = [{ name: 'hajjlskfjlaksfkk', version: '156371537' }];
 
 export const ServiceList = () => (
   <ul>
