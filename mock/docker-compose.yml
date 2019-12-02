@@ -1,0 +1,20 @@
+version: '3'
+services:
+  a-backend-service-mock:
+    image: stoplight/prism:3
+    ports: 
+      - 8021:8021
+    command: >
+      mock -d -p 8021 --host 0.0.0.0
+      https://raw.githubusercontent.com/Informasjonsforvaltning/a-backend-service/master/src/main/resources/specification/a-backend-service.yaml
+  auth-mock:  
+    image: docker.pkg.github.com/informasjonsforvaltning/auth-utils-java/auth-utils-java:latest
+    ports: 
+      - 8084:8084
+
+  
+
+
+
+     
+

@@ -1,0 +1,8 @@
+dist
+coverage
+node_modules
+
+.gitignore
+.eslintignore
+
+package-lock.json
