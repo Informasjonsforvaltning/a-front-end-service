@@ -8,8 +8,8 @@ const placeholder = [
 
 export const ServiceList = () => (
   <ul>
-    {placeholder.map((value, index) => (
-      <ServiceListItem key={index} version={value} />
+    {placeholder.map(value => (
+      <ServiceListItem key={value.name} version={value} />
     ))}
   </ul>
 );

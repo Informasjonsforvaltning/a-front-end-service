@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
+    "es2020": true,
     "jest": true
   },
   "extends": [
@@ -10,7 +10,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/strict"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -26,10 +27,10 @@
     "html",
     "json",
     "markdown",
-    "prettier"
+    "prettier",
+    "jsx-a11y"
   ],
   "rules": {
-
     "prettier/prettier": [ 
       "error",
       {
@@ -48,7 +49,6 @@
     "@typescript-eslint/no-empty-function": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/no-array-index-key": "off",
     "react/no-unused-state": "off",
     "react/jsx-curly-newline": "off",
     "no-restricted-globals": "off",
@@ -68,25 +68,5 @@
         ]
       }
     ]
-  },
-  "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx",
-        "*.d.ts"
-      ],
-      "rules": {}
-    },
-    {
-      "files": [
-        "./webpack/*"
-      ],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    }
-  ],
-  "settings": {
   }
 }
