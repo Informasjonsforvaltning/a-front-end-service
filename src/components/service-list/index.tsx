@@ -5,8 +5,8 @@ const placeholder = [{ name: 'hajjlskfjlaksfkk', version: '156371537' }];
 
 export const ServiceList = () => (
   <ul>
-    {placeholder.map((value, index) => (
-      <ServiceListItem key={index} version={value} />
+    {placeholder.map(value => (
+      <ServiceListItem key={value.name} version={value} />
     ))}
   </ul>
 );
