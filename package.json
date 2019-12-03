@@ -20,6 +20,9 @@
     "build:webpack:prod": "webpack --config-register @babel/register --config webpack/prod.config.js",
     "test": "test",
     "test:feature": "codeceptjs run --features",
+    "test:feature:init" : "codeceptjs gherkin:init",
+    "test:gen:feature": "bash test/utils/newFeature.sh",
+    "test:gen:steps": "codeceptjs gherkin:snippets", 
     "build": "webpack --config-register @babel/register --config webpack/prod.config.js"
   },
   "repository": {
@@ -48,6 +51,7 @@
     "babel-plugin-styled-components": "^1.10.6",
     "base-href-webpack-plugin": "^2.0.0",
     "clean-webpack-plugin": "^3.0.0",
+    "codeceptjs": "^2.3.6",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
     "error-overlay-webpack-plugin": "^0.4.1",
