@@ -3,11 +3,13 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: 'http://localhost:8203',
-      show: false
+      show: true
     }
   },
   include: {
-    I: './test/feature/step_file.js'
+    I: './test/feature/step_file.js',
+    adminPage: './test/feature/pages/admin.js',
+    homePage: './test/feature/pages/home.js'
   },
   mocha: {},
   bootstrap: null,
@@ -15,7 +17,11 @@ exports.config = {
   hooks: [],
   gherkin: {
     features: './features/*.feature',
-    steps: ['./test/feature/step_definitions/steps.js']
+    steps: [
+      './test/feature/step_definitions/steps.js',
+      './test/feature/step_definitions/admin.steps.js',
+      './test/feature/step_definitions/home.steps.js'
+    ]
   },
   plugins: {
     screenshotOnFail: {

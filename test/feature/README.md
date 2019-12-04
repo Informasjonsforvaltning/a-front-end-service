@@ -24,6 +24,10 @@ npm install codeceptjs puppeteer
 "test:gen:steps"
 ```
 
+### Generating page objects
+
+npx codeceptjs generate:pageobject
+
 ## Running tests
 
 All tests

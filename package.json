@@ -21,6 +21,7 @@
     "test": "test",
     "test:feature": "codeceptjs run --features",
     "test:feature:tag": "codeceptjs run --grep",
+    "test:feature:debug" : "codeceptjs run --debug",
     "test:feature:init" : "codeceptjs gherkin:init",
     "test:gen:feature": "bash test/utils/newFeature.sh",
     "test:gen:steps": "codeceptjs gherkin:snippets", 

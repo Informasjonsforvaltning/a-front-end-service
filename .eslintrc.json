@@ -74,6 +74,7 @@
     "Given": true,
     "When": true,
     "Then":true,
-    "actor": false
+    "actor": false,
+    "locate": true
   }
 }

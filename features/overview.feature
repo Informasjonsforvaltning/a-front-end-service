@@ -1,6 +1,6 @@
 Feature: Overview of service
   As a public user 
-  I want to see a list of running service endpoints
+  I want to see a table of running service endpoints
   So that I can: know which version of a service endpoint I am accessing 
   So that I can: get detailed information about the state of development of the service endpoint  
 
@@ -8,7 +8,7 @@ Feature: Overview of service
   Given I am a public user 
     When I access the homepage
       Then I can see <total>$ list items
-      And The list contains <name>$
+      And The table contains <name>$
       And <name>$ has an url
       And the list iten has a version
 
