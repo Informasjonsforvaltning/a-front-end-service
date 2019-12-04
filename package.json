@@ -21,10 +21,10 @@
     "test": "test",
     "test:feature": "codeceptjs run --features",
     "test:feature:tag": "codeceptjs run --grep",
-    "test:feature:debug" : "codeceptjs run --debug",
-    "test:feature:init" : "codeceptjs gherkin:init",
+    "test:feature:debug": "codeceptjs run --debug",
+    "test:feature:init": "codeceptjs gherkin:init",
     "test:gen:feature": "bash test/utils/newFeature.sh",
-    "test:gen:steps": "codeceptjs gherkin:snippets", 
+    "test:gen:steps": "codeceptjs gherkin:snippets",
     "build": "webpack --config-register @babel/register --config webpack/prod.config.js"
   },
   "repository": {
@@ -52,6 +52,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.6",
     "base-href-webpack-plugin": "^2.0.0",
+    "chai": "^4.2.0",
     "clean-webpack-plugin": "^3.0.0",
     "codeceptjs": "^2.3.6",
     "commitizen": "^4.0.3",

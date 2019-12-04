@@ -1,13 +1,10 @@
+const { expect } = require('chai');
+
 const { I } = inject();
 
 class HomePage {
   constructor() {
-    this.serviceTable = '<table>';
-  }
-
-  async seeInList(serviceName) {
-    await I.waitForVisible(this.serviceList);
-    I.seeElement(serviceName, '//li');
+    this.serviceList = '//ul';
   }
 
   async seeDetailedInformation(serviceName) {
@@ -15,6 +12,17 @@ class HomePage {
     I.click(elementPath);
     return locate('//div//table//legend[text()=Details]');
   }
+
+  async listHasSize(expected) {
+    const listSize = await I.grabNumberOfVisibleElements(
+      `${this.serviceList}//li`
+    );
+    expect(listSize).to.equal(expected);
+  }
+
+  listContains(expected) {
+    I.seeElement(expected, '//ul//li');
+  }
 }
 
-export default new HomePage();
+module.exports = new HomePage();

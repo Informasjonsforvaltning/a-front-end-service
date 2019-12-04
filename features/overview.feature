@@ -1,3 +1,4 @@
+@homepage
 Feature: Overview of service
   As a public user 
   I want to see a table of running service endpoints
@@ -8,15 +9,15 @@ Feature: Overview of service
   Given I am a public user 
     When I access the homepage
       Then I can see <total>$ list items
-      And The table contains <name>$
+      And The list contains <name>$
       And <name>$ has an url
-      And the list iten has a version
+      And the list item has a version
 
   Scenario: See details of service
   Given I am on homepage 
     When I click <service-name>$
       Then I can see a details about the service
       | version | sha | branch |
-
+      
   
 

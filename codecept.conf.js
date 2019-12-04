@@ -3,7 +3,7 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: 'http://localhost:8203',
-      show: true
+      show: false
     }
   },
   include: {
