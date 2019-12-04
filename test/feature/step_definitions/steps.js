@@ -1,50 +1,4 @@
 const { I } = inject();
-Then('The list contains <name>$', () => {
-  I.seeTextEquals(
-    'running version for hajjlskfjlaksfkk is156371537',
-    '//ul/li[1]'
-  );
-});
-
-Given('I am on homepage', () => {
-  I.amOnPage('/');
-  I.seeInTitle('A frontend service');
-});
-
-Then('I can see <total>$ list items', () => {
-  I.seeNumberOfVisibleElements('li', 1);
-});
-
-Then('The list contains <name>$', () => {
-  I.seeTextEquals(
-    'running version for hajjlskfjlaksfkk is156371537',
-    '//ul/li[1]'
-  );
-});
-
-Then('<name>$ has an url', () => {
-  I.seeTextEquals(
-    'running version for hajjlskfjlaksfkk is156371537',
-    '//ul/li[1]'
-  );
-});
-
-Then('the list iten has a version', () => {
-  I.seeTextEquals(
-    'running version for hajjlskfjlaksfkk is156371537',
-    '//ul/li[1]'
-  );
-});
-
-When('I click <service-name>$', () => {
-  // From "features/overview.feature" {"line":13,"column":5}
-  throw new Error('Not implemented yet');
-});
-
-Then('I can see a details about the service', () => {
-  // From "features/overview.feature" {"line":14,"column":5}
-  throw new Error('Not implemented yet');
-});
 
 Given('I am admin', () => {
   // From "features/admin.feature" {"line":8,"column":3}
@@ -198,5 +152,40 @@ Given('I am a public user', () => {
 
 When('I access the homepage', () => {
   // From "features/overview.feature" {"line":9,"column":5}
+  throw new Error('Not implemented yet');
+});
+
+Then('I can see <total>$ list items', () => {
+  // From "features/overview.feature" {"line":10,"column":7}
+  throw new Error('Not implemented yet');
+});
+
+Then('The list contains <name>$', () => {
+  // From "features/overview.feature" {"line":11,"column":7}
+  throw new Error('Not implemented yet');
+});
+
+Then('<name>$ has an url', () => {
+  // From "features/overview.feature" {"line":12,"column":7}
+  throw new Error('Not implemented yet');
+});
+
+Then('the list iten has a version', () => {
+  // From "features/overview.feature" {"line":13,"column":7}
+  throw new Error('Not implemented yet');
+});
+
+Given('I am on homepage', () => {
+  // From "features/overview.feature" {"line":16,"column":3}
+  throw new Error('Not implemented yet');
+});
+
+When('I click <service-name>$', () => {
+  // From "features/overview.feature" {"line":17,"column":5}
+  throw new Error('Not implemented yet');
+});
+
+Then('I can see a details about the service', () => {
+  // From "features/overview.feature" {"line":18,"column":7}
   throw new Error('Not implemented yet');
 });

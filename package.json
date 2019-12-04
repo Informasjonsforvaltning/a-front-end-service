@@ -20,6 +20,7 @@
     "build:webpack:prod": "webpack --config-register @babel/register --config webpack/prod.config.js",
     "test": "test",
     "test:feature": "codeceptjs run --features",
+    "test:feature:tag": "codeceptjs run --grep",
     "test:feature:init" : "codeceptjs gherkin:init",
     "test:gen:feature": "bash test/utils/newFeature.sh",
     "test:gen:steps": "codeceptjs gherkin:snippets", 

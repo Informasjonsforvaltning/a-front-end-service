@@ -13,21 +13,3 @@
 ## Feature testing
 
 High level ui tests are implemented using [codecept with gherkin](https://codecept.io/bdd)
-
-### Initiating codecept with gherkin
-
-```json
-"test:feature:init"
-```
-
-### Generating new feature file
-
-```json
-"test:gen:feature"
-```
-
-### Generating steps from feature file
-
-```json
-"test:gen:steps"
-```
