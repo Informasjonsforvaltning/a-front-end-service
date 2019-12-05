@@ -9,14 +9,14 @@ When('I access the homepage', () => {
   I.goToHomePage();
 });
 
-Then('I can see <total>$ list items', () => {
+Then('I can see <total>$ table rows', () => {
   // From "features/overview.feature" {"line":10,"column":7}
-  I.seeElement('//ul');
-  homePage.listHasSize(1);
+  I.seeElement('//table');
+  homePage.tableRowTotal(1);
 });
 
-Then('The list contains <name>$', () => {
-  homePage.listContains('a-backend-service');
+Then('The table contains <name>$', () => {
+  homePage.tableContains('a-backend-service');
 });
 
 Then('<name>$ has an url', () => {
@@ -24,7 +24,7 @@ Then('<name>$ has an url', () => {
   I.say('Not implemented yet');
 });
 
-Then('the list item has a version', () => {
+Then('<name>$ has a version', () => {
   // From "features/overview.feature" {"line":13,"column":7}
   I.say('Not implemented yet');
 });

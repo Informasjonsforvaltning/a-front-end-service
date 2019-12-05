@@ -4,24 +4,26 @@ const { I } = inject();
 
 class HomePage {
   constructor() {
-    this.serviceList = '//ul';
+    this.serviceTable = '//table';
   }
 
   async seeDetailedInformation(serviceName) {
-    const elementPath = `//li[text()=${serviceName}]`;
+    const elementPath = `//tr[text()=${serviceName}]`;
     I.click(elementPath);
-    return locate('//div//table//legend[text()=Details]');
+    const detail_path = '//div//table//legend[text()=Details]';
+    I.seeElement(detail_path);
   }
 
-  async listHasSize(expected) {
+  async tableRowTotal(expected) {
     const listSize = await I.grabNumberOfVisibleElements(
-      `${this.serviceList}//li`
+      `${this.serviceTable}/tbody/tr`
     );
     expect(listSize).to.equal(expected);
   }
 
-  listContains(expected) {
-    I.seeElement(expected, '//ul//li');
+  tableContains(expected) {
+    const elementPath = `${this.serviceTable}/tbody/tr/td[text()[contains(. ,'${expected}')]]`;
+    I.seeElement({ xpath: elementPath });
   }
 }
 

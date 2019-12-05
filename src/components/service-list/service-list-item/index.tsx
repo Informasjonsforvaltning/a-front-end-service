@@ -1,4 +1,6 @@
 import React from 'react';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
 import { Version } from '../../../types';
 
 export interface Props {
@@ -6,7 +8,9 @@ export interface Props {
 }
 
 export const ServiceListItem = ({ version: { name, version } }: Props) => (
-  <li>
-    running version for {name} is{version}
-  </li>
+  <TableRow>
+    <TableCell> {name} </TableCell>
+    <TableCell />
+    <TableCell> {version} </TableCell>
+  </TableRow>
 );

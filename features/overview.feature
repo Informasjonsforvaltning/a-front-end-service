@@ -8,10 +8,10 @@ Feature: Overview of service
   Scenario: See all services 
   Given I am a public user 
     When I access the homepage
-      Then I can see <total>$ list items
-      And The list contains <name>$
+      Then I can see <total>$ table rows
+      And The table contains <name>$
       And <name>$ has an url
-      And the list item has a version
+      And  <name>$ has a version
 
   Scenario: See details of service
   Given I am on homepage 

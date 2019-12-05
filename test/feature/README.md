@@ -40,7 +40,7 @@ Test one specific feature
 "test:feature /path/to/feature/file"
 ´´´
 
-Run tests that are tagged
+Run tests that with tags
 
 ```bash
 test:feature:tag "@tagname"
