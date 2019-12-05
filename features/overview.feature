@@ -21,7 +21,7 @@ Feature: Overview of service
   Scenario: See details of service
     When I click a-backend-service
       Then I can see details about the service
-      | version | sha | branch |
-      | 1.0.3   | 123 | nano   |          
+      | repositoryUrl                                                             | sha         | branchName | buildTime | versionId |
+      |  https://github.com/Informasjonsforvaltning/a-backend-service             | 5146712476  | master     | 1m 3s     | 1.0.3     | 
   
 

@@ -33,7 +33,11 @@ When('I click a-backend-service', () => {
   I.say('Not implemented yet');
 });
 
-Then('I can see details about the service', () => {
-  // From "features/overview.feature" {"line":24,"column":7}
-  I.say('Not implemented yet');
+Then('I can see details about the service', table => {
+  const value_row = table.rows[1];
+  const exp_repo = value_row.cells[0].value;
+  const exp_sha = table.rows[1].cells[1].value;
+  const exp_branch = table.rows[1].cells[2].value;
+  const exp_version = table.rows[1].cells[3].value;
+  const exp_buildTime = table.row[1].cells[4].value;
 });
