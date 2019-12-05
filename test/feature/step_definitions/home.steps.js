@@ -3,9 +3,7 @@ const { I, homePage } = inject();
 Given('I am a public user', () => {
   I.say('Accessing public website');
 });
-
-When('I access the homepage', () => {
-  // From "features/overview.feature" {"line":9,"column":5}
+Given('I am on homepage', () => {
   I.goToHomePage();
 });
 
@@ -26,11 +24,6 @@ Then('<name>$ has an url', () => {
 
 Then('<name>$ has a version', () => {
   // From "features/overview.feature" {"line":13,"column":7}
-  I.say('Not implemented yet');
-});
-
-Given('I am on homepage', () => {
-  // From "features/overview.feature" {"line":16,"column":3}
   I.say('Not implemented yet');
 });
 

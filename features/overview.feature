@@ -5,18 +5,19 @@ Feature: Overview of service
   So that I can: know which version of a service endpoint I am accessing 
   So that I can: get detailed information about the state of development of the service endpoint  
 
-  Scenario: See all services 
+  Background:
   Given I am a public user 
-    When I access the homepage
+  And I am on homepage
+
+  Scenario: See all services 
       Then I can see <total>$ table rows
       And The table contains <name>$
       And <name>$ has an url
       And  <name>$ has a version
 
   Scenario: See details of service
-  Given I am on homepage 
     When I click <service-name>$
-      Then I can see a details about the service
+      Then I can see details about the service
       | version | sha | branch |
       
   
