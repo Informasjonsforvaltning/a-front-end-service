@@ -7,32 +7,33 @@ Given('I am on homepage', () => {
   I.goToHomePage();
 });
 
-Then('I can see <total>$ table rows', () => {
+Then('I can see {int} table rows', number => {
   // From "features/overview.feature" {"line":10,"column":7}
   I.seeElement('//table');
-  homePage.tableRowTotal(1);
+  return homePage.tableRowTotal(number);
 });
 
-Then('The table contains <name>$', () => {
+Then('The table contains {string}', name => {
   homePage.tableContains('a-backend-service');
 });
 
-Then('<name>$ has an url', () => {
+Then('{string} has an url', () => {
   // From "features/overview.feature" {"line":12,"column":7}
   I.say('Not implemented yet');
 });
 
-Then('<name>$ has a version', () => {
+Then('{string} has a version', () => {
   // From "features/overview.feature" {"line":13,"column":7}
   I.say('Not implemented yet');
 });
 
-When('I click <service-name>$', () => {
+When('I click a-backend-service', () => {
   // From "features/overview.feature" {"line":17,"column":5}
+  //  homePage.seeDetailedInformation;
   I.say('Not implemented yet');
 });
 
-Then('I can see a details about the service', () => {
-  // From "features/overview.feature" {"line":18,"column":7}
+Then('I can see details about the service', () => {
+  // From "features/overview.feature" {"line":24,"column":7}
   I.say('Not implemented yet');
 });

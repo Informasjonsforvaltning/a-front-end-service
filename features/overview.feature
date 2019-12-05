@@ -9,16 +9,19 @@ Feature: Overview of service
   Given I am a public user 
   And I am on homepage
 
-  Scenario: See all services 
-      Then I can see <total>$ table rows
-      And The table contains <name>$
-      And <name>$ has an url
-      And  <name>$ has a version
+  Scenario Outline: See all services 
+      Then I can see <total> table rows
+      And The table contains <name>
+      And <name> has an url
+      And  <name> has a version
+     Examples: 
+   |  total  | name                 |
+   |  1      | "a-backend-service"  |    
 
   Scenario: See details of service
-    When I click <service-name>$
+    When I click a-backend-service
       Then I can see details about the service
       | version | sha | branch |
-      
+      | 1.0.3   | 123 | nano   |          
   
 

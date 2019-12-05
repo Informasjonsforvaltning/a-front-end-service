@@ -1,6 +1,5 @@
-const { expect } = require('chai');
-
 const { I } = inject();
+const { expect } = require('chai');
 
 class HomePage {
   constructor() {
@@ -15,10 +14,11 @@ class HomePage {
   }
 
   async tableRowTotal(expected) {
-    const listSize = await I.grabNumberOfVisibleElements(
-      `${this.serviceTable}/tbody/tr`
+    return I.grabNumberOfVisibleElements(`${this.serviceTable}/tbody/tr`).then(
+      result => {
+        expect(result).to.equal(expected);
+      }
     );
-    expect(listSize).to.equal(expected);
   }
 
   tableContains(expected) {
