@@ -1,5 +1,6 @@
+import { expect } from 'chai';
+
 const { I } = inject();
-const { expect } = require('chai');
 
 class HomePage {
   constructor() {

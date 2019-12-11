@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "outDir": "./test/generated/feature",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "module": "commonjs",
+        "target": "es6",
+        "lib": ["es2016", "es2017", "dom","es6"],
+        "strict": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "strictPropertyInitialization": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "typeRoots": ["src/types/*", "node_modules/@types","test/generated/types/*","node_modules/codeceptjs/typings/"]
+    },
+    "include": [
+        "./test/feature/**/*"
+      ],
+    "exclude": ["node_modules"]
+    
+}

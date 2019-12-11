@@ -1,5 +1,5 @@
 exports.config = {
-  output: './test/output',
+  output: './test/generated/output',
   helpers: {
     Puppeteer: {
       url: 'http://localhost:8203',
@@ -7,9 +7,9 @@ exports.config = {
     }
   },
   include: {
-    I: './test/feature/step_file.js',
-    adminPage: './test/feature/pages/admin.js',
-    homePage: './test/feature/pages/home.js'
+    I: './test/feature/js/step_file.js',
+    adminPage: './test/feature/js/pages/admin.js',
+    homePage: './test/feature/home/home.ts'
   },
   mocha: {},
   bootstrap: null,
@@ -18,9 +18,9 @@ exports.config = {
   gherkin: {
     features: './features/*.feature',
     steps: [
-      './test/feature/step_definitions/steps.js',
-      './test/feature/step_definitions/admin.steps.js',
-      './test/feature/step_definitions/home.steps.js'
+      './test/feature/js/step_definitions/steps.js',
+      './test/feature/js/step_definitions/admin.steps.js',
+      './test/generated/feature/home.steps.js'
     ]
   },
   plugins: {
@@ -28,6 +28,7 @@ exports.config = {
       enabled: false
     }
   },
-  tests: './test/*_test.js',
+  require: ['ts-node/register'],
+  tests: './test/feature/*_test.js',
   name: 'a-front-end-service'
 };
