@@ -27,7 +27,7 @@
     "test:feature:init": "codeceptjs gherkin:init",
     "test:gen:feature": "bash test/utils/newFeature.sh",
     "test:gen:steps": "codeceptjs gherkin:snippets",
-    "test:gen:types": "codeceptjs def -o ./test/generated/typings",
+    "test:gen:types": "codeceptjs def -o ./test/types",
     "build": "webpack --config-register @babel/register --config webpack/prod.config.js"
   },
   "repository": {

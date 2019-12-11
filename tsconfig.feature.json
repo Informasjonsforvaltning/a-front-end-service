@@ -20,7 +20,8 @@
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true,
-        "typeRoots": ["src/types/*", "node_modules/@types","test/generated/types/*","node_modules/codeceptjs/typings/"]
+        "types": ["codeceptjs","node"],
+        "typeRoots": ["src/types/*", "node_modules/@types","test/generated/types/*"]
     },
     "include": [
         "./test/feature/**/*"

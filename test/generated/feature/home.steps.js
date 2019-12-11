@@ -1,6 +1,11 @@
 "use strict";
-const { I, homePage, adminPage } = inject();
-// const homePage = new HomePage();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const home_1 = __importDefault(require("./home"));
+const { I } = inject();
+const homePage = new home_1.default();
 Given('I am a public user', () => {
     I.say('Accessing public website', 'green');
 });

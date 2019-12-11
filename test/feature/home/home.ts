@@ -26,6 +26,4 @@ class HomePage {
   }
 }
 
-const homePage = new HomePage();
-
-export default homePage;
+export default HomePage;

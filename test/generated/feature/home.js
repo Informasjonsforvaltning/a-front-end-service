@@ -35,6 +35,5 @@ class HomePage {
         I.seeElement({ xpath: elementPath });
     }
 }
-const homePage = new HomePage();
-exports.default = homePage;
+exports.default = HomePage;
 //# sourceMappingURL=home.js.map

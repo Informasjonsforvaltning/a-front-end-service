@@ -1,6 +1,7 @@
-const { I, homePage, adminPage } = inject();
-// const homePage = new HomePage();
+import HomePage from './home';
 
+const { I } = inject();
+const homePage = new HomePage();
 Given('I am a public user', () => {
   I.say('Accessing public website', 'green');
 });
@@ -35,8 +36,8 @@ When('I click a-backend-service', () => {
   I.say('Not implemented yet', 'green');
 });
 
-Then('I can see details about the service', (table: any) => {
-  I.say(table, 'green');
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+Then('I can see details about the service', (table: CodeceptJS.DataTable) => {
   /* const value_row = table.rows[1];
   const exp_repo = value_row.cells[0].value;
   const exp_sha = table.rows[1].cells[1].value;
