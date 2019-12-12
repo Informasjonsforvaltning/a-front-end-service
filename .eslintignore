@@ -4,5 +4,6 @@ node_modules
 
 .gitignore
 .eslintignore
+test/generated/feature
 
 package-lock.json

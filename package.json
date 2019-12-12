@@ -13,7 +13,7 @@
     "mock:start:d": "cd mock && bash start-mock-d.sh",
     "mock:stop": "cd mock && docker-compose down",
     "lint": "eslint",
-    "lint:project": "eslint --ext tsx,ts,jsx,js,json,html ./",
+    "lint:project": "eslint --ext tsx,ts,jsx,js,json,md,html ./",
     "lint:staged:fix": "eslint --ext tsx,ts,jsx,js,json,md,html --fix",
     "commit": "git-cz",
     "build:prod": "npm-run-all build:webpack:prod",

@@ -36,8 +36,8 @@ When('I click a-backend-service', () => {
   I.say('Not implemented yet', 'green');
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 Then('I can see details about the service', (table: CodeceptJS.DataTable) => {
+  I.say(table, 'green');
   /* const value_row = table.rows[1];
   const exp_repo = value_row.cells[0].value;
   const exp_sha = table.rows[1].cells[1].value;

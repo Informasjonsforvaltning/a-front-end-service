@@ -21,11 +21,12 @@
         "isolatedModules": true,
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true,
-        "typeRoots": ["src/types/*", "node_modules/@types","test/generated/types/*"],
+        "typeRoots": ["src/types/*", "node_modules/@types","test/types/*"],
         "types": ["codeceptjs", "node"]
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*",
+        "./test/**/*"
       ],
     "exclude": ["node_modules"]
 }
