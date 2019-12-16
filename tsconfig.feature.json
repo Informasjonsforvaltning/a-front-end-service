@@ -3,7 +3,7 @@
     "compilerOptions": {
         "outDir": "./test/generated/feature",
         "target": "es6",
-        "lib": ["es2017", "dom","es6"]
+        "lib": ["es2017", "dom","es6"],
     },
     "include": [
         "./test/feature/**/*",

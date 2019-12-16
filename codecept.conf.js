@@ -7,9 +7,7 @@ exports.config = {
     }
   },
   include: {
-    I: './test/feature/js/step_file.js',
-    adminPage: './test/feature/js/pages/admin.js',
-    homePage: './test/feature/home/home.ts'
+    I: './test/feature/js/step_file.js'
   },
   mocha: {},
   bootstrap: null,

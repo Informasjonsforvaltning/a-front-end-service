@@ -1,7 +1,8 @@
-import HomePage from './home';
+import HomePage from './home.page';
 
 const { I } = inject();
 const homePage = new HomePage();
+
 Given('I am a public user', () => {
   I.say('Accessing public website', 'green');
 });
@@ -16,8 +17,7 @@ Then('I can see {int} table rows', (number: number) => {
 });
 
 Then('The table contains {string}', (name: string) => {
-  homePage.tableContains('a-backend-service');
-  I.say(name, 'green');
+  homePage.tableContains(name);
 });
 
 Then('{string} has an url', () => {
