@@ -6,7 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import { ServiceListItem } from './service-list-item';
 
-const placeholder = [{ name: 'a-backend-service', version: '1.0.3' }];
+const placeholder = [{ name: 'a-backend-service', url: '1.0.3' }];
 
 export const ServiceList = () => (
   <Table>

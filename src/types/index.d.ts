@@ -1,9 +1,13 @@
-export interface Version {
+export interface EndpointVersion {
   name: string;
-  version: string;
+  url: string;
 }
 
-export interface GlobalState {
-  loggedIn: boolean;
-  services: Array<Version>;
+export interface ServiceDetails {
+  repositoryUrl: string;
+  branchName: string;
+  buildTime: string;
+  sha: string;
+  versionId: string;
 }
+export * from './common';
