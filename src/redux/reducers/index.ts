@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import ServiceEndpointReducer from './ServiceEndpointReducer';
+import ServiceEndpointsReducer from './ServiceEndpointReducer';
 
 const rootReducer = combineReducers({
-  serviceEndpoints: ServiceEndpointReducer
+  serviceEndpoints: ServiceEndpointsReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
+
+export default rootReducer;

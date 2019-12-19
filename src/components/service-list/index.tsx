@@ -4,23 +4,29 @@ import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
+import { useSelector } from 'react-redux';
 import { ServiceListItem } from './service-list-item';
+import { EndpointVersion } from '../../types';
+import { insertTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
-const placeholder = [{ name: 'a-backend-service', url: '1.0.3' }];
-
-export const ServiceList = () => (
-  <Table>
-    <TableHead>
-      <TableRow>
-        <TableCell>name</TableCell>
-        <TableCell>url</TableCell>
-        <TableCell>version</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {placeholder.map(value => (
-        <ServiceListItem key={value.name} version={value} />
-      ))}
-    </TableBody>
-  </Table>
-);
+export const ServiceList = () => {
+  const endpointVersions: Array<EndpointVersion> = useSelector(
+    (state: any) => state.serviceEndpoints.serviceEndpoints
+  );
+  return (
+    <Table {...insertTestId(TestIdValues.serviceList.component)}>
+      <TableHead>
+        <TableRow>
+          <TableCell>name</TableCell>
+          <TableCell>url</TableCell>
+          <TableCell>version</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {endpointVersions.map(value => (
+          <ServiceListItem key={value.name} version={value} />
+        ))}
+      </TableBody>
+    </Table>
+  );
+};

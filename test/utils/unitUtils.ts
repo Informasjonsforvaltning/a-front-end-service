@@ -1,4 +1,6 @@
 import { ShallowWrapper } from 'enzyme';
+import { createStore } from 'redux';
+import rootReducer from '../../src/redux/reducers';
 
 export function findByTestId(wrapper: ShallowWrapper, testId: string) {
   const selector = `[data_test="${testId}"]`;
@@ -19,3 +21,8 @@ export const TestIdValues = {
     listItem: 'service-list-item-component'
   }
 };
+
+export function storeFactory(initialState: any) {
+  const store = createStore(rootReducer, initialState);
+  return store;
+}

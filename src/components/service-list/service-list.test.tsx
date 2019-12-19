@@ -1,25 +1,59 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { ServiceListItem } from './service-list-item/index';
+import { ServiceList } from '.';
 import { EndpointVersion } from '../../types';
 import { findByTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
-function listItemSetup(
-  versionProps: EndpointVersion = { name: 'some name', url: '1.0.9' }
-) {
-  const wrapper = shallow(
-    <ServiceListItem key={versionProps.name} version={versionProps} />
-  );
+let endpointList: Array<EndpointVersion> = [];
+
+jest.mock('react-redux', () => ({
+  useDispatch: () => {},
+  useSelector: () => endpointList
+}));
+
+function setup(): ShallowWrapper {
+  const wrapper = shallow(<ServiceList />);
   return wrapper;
 }
 
-describe('Service list items', () => {
+describe('Service list', () => {
+  const listIds = TestIdValues.serviceList;
   let wrapper: ShallowWrapper;
-  beforeEach(() => {
-    wrapper = listItemSetup();
+  describe('When list is empty', () => {
+    beforeEach(() => {
+      wrapper = setup();
+    });
+    it('should render without errors', () => {
+      const component = findByTestId(wrapper, listIds.component);
+      expect(component.length).toBe(1);
+    });
+    it('should have empty list', () => {
+      const listItems = wrapper
+        .children()
+        .last()
+        .children();
+      expect(listItems.length).toBe(0);
+    });
   });
-  it('renders wihtout error', () => {
-    const listItem = findByTestId(wrapper, TestIdValues.serviceList.listItem);
-    expect(listItem.length).toBe(1);
+  describe('When list has 3 elements', () => {
+    beforeEach(() => {
+      endpointList = [
+        { name: 'some-name', url: 'http://somversion/hjdkh' },
+        { name: 'other-name', url: 'http://othernam/hjdkh' },
+        { name: 'yesno-name', url: 'http://yesno/hjdkh' }
+      ];
+      wrapper = setup();
+    });
+    it('should render without errors', () => {
+      const component = findByTestId(wrapper, listIds.component);
+      expect(component.length).toBe(1);
+    });
+    it('should have 3 elements in list', () => {
+      const listItems = wrapper
+        .children()
+        .last()
+        .children();
+      expect(listItems.length).toBe(3);
+    });
   });
 });

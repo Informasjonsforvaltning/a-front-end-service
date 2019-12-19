@@ -8,9 +8,7 @@ const initialState: ServiceEndpointState = {
 export default function reducer(state = initialState, action: ServiceActions) {
   switch (action.type) {
     case ServiceActionTypes.FETCH_SUCCEEDED: {
-      if (state.error) {
-        delete state.error;
-      }
+      if (state.error) delete state.error;
       return { ...state, ...action.payload };
     }
     case ServiceActionTypes.FETCH_FAILED: {
@@ -23,6 +21,6 @@ export default function reducer(state = initialState, action: ServiceActions) {
       return undefined;
     }
     default:
-      return undefined;
+      return state;
   }
 }

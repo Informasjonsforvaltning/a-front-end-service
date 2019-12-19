@@ -3,12 +3,16 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider as ReduxProvider } from 'react-redux';
 import { ServiceList } from './components/service-list';
+import store from './redux/store';
 
 render(
-  <AppContainer>
-    <ServiceList />
-  </AppContainer>,
+  <ReduxProvider store={store}>
+    <AppContainer>
+      <ServiceList />
+    </AppContainer>
+  </ReduxProvider>,
   document.getElementById('root')
 );
 
