@@ -1,28 +1,30 @@
+import { fromJS } from 'immutable';
 import reducer from './ServiceEndpointReducer';
 import * as actions from '../actions';
-import { ServiceEndpointState } from '../../types/states';
 
 describe('ServiceEndpointReducer ', () => {
-  const originalState = {
+  const originalState = fromJS({
     serviceEndpoints: []
-  };
-  const successState: ServiceEndpointState = {
+  });
+  const successState = fromJS({
     serviceEndpoints: [
       { name: 'some-name', url: 'http://somversion/hjdkh' },
       { name: 'other-name', url: 'http://othernam/hjdkh' },
       { name: 'yesno-name', url: 'http://yesno/hjdkh' }
     ]
-  };
+  });
 
-  const failState = {
+  const failState = fromJS({
     error: 'Could not get service endpoints. Server not avaiable',
     serviceEndpoints: []
-  };
+  });
 
   it('should return a state with a list of service endpoints on SUCCEDED', () => {
     const result = reducer(
       originalState,
-      actions.fetchServiceEndpointsSucceded(successState.serviceEndpoints)
+      actions.fetchServiceEndpointsSucceded(
+        successState.get('serviceEndpoints').toJS()
+      )
     );
     expect(result).toEqual(successState);
   });
@@ -30,7 +32,7 @@ describe('ServiceEndpointReducer ', () => {
   it('should return a state with an error message on FAILED', () => {
     const result = reducer(
       originalState,
-      actions.fetchServiceEndpointsFailed(failState.error)
+      actions.fetchServiceEndpointsFailed(failState.get('error'))
     );
     expect(result).toEqual(failState);
   });
@@ -38,7 +40,9 @@ describe('ServiceEndpointReducer ', () => {
   it('should return a state with no error when request has succeded after failed attempt', () => {
     const result = reducer(
       failState,
-      actions.fetchServiceEndpointsSucceded(successState.serviceEndpoints)
+      actions.fetchServiceEndpointsSucceded(
+        successState.get('serviceEndpoints').toJS()
+      )
     );
     expect(result).toEqual(successState);
   });

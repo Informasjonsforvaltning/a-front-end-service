@@ -11,7 +11,8 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:jsx-a11y/strict"
+    "plugin:jsx-a11y/strict",
+    "plugin:codeceptjs/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -28,7 +29,7 @@
     "json",
     "markdown",
     "prettier",
-    "jsx-a11y"
+    "jsx-a11y",
   ],
   "rules": {
     "prettier/prettier": [ 
@@ -69,12 +70,4 @@
       }
     ]
   },
-  "globals": {
-    "inject": true,
-    "Given": true,
-    "When": true,
-    "Then":true,
-    "actor": false,
-    "locate": true
-  }
 }

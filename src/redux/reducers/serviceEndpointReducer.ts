@@ -1,24 +1,36 @@
-import { ServiceEndpointState } from '../../types/states';
-import { ServiceActionTypes, ServiceActions } from '../actions/types';
+import { fromJS } from 'immutable';
+import {
+  FETCH_SUCCEEDED,
+  FETCH_DETAILS_SUCCEEDED,
+  FETCH_DETAILS_FAILED,
+  FETCH_FAILED
+} from '../actions/types';
+import * as actions from '../actions';
+import { Actions } from '../../types';
 
-const initialState: ServiceEndpointState = {
+const initialState = fromJS({
   serviceEndpoints: []
-};
+});
 
-export default function reducer(state = initialState, action: ServiceActions) {
+export default function reducer(
+  state = initialState,
+  action: Actions<typeof actions>
+) {
   switch (action.type) {
-    case ServiceActionTypes.FETCH_SUCCEEDED: {
-      if (state.error) delete state.error;
-      return { ...state, ...action.payload };
+    case FETCH_SUCCEEDED: {
+      const ret = state
+        .set('serviceEndpoints', fromJS(action.payload.serviceEndpoints))
+        .delete('error');
+      return ret;
     }
-    case ServiceActionTypes.FETCH_FAILED: {
-      return { ...state, ...action.payload };
+    case FETCH_FAILED: {
+      return state.set('error', fromJS(action.payload.error));
     }
-    case ServiceActionTypes.FETCH_DETAILS_SUCCEEDED: {
-      return undefined;
+    case FETCH_DETAILS_SUCCEEDED: {
+      return state;
     }
-    case ServiceActionTypes.FETCH_DETAILS_FAILED: {
-      return undefined;
+    case FETCH_DETAILS_FAILED: {
+      return state;
     }
     default:
       return state;

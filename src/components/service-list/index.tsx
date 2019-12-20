@@ -11,7 +11,7 @@ import { insertTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
 export const ServiceList = () => {
   const endpointVersions: Array<EndpointVersion> = useSelector(
-    (state: any) => state.serviceEndpoints.serviceEndpoints
+    (state: any) => state.serviceEndpoints.get('serviceEndpoints').toJS()
   );
   return (
     <Table {...insertTestId(TestIdValues.serviceList.component)}>
