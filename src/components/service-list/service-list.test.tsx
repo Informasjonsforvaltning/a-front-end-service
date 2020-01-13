@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { ServiceList } from '.';
-import { EndpointVersion } from '../../types';
+import { ServiceEndpoint } from '../../types';
 import { findByTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
-let endpointList: Array<EndpointVersion> = [];
+let endpointList: Array<ServiceEndpoint> = [];
 
 jest.mock('react-redux', () => ({
   useDispatch: () => {},

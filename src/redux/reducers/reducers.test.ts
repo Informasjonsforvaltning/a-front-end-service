@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import reducer from './ServiceEndpointReducer';
+import reducer from './serviceEndpointReducer';
 import * as actions from '../actions';
 
 describe('ServiceEndpointReducer ', () => {
@@ -15,7 +15,7 @@ describe('ServiceEndpointReducer ', () => {
   });
 
   const failState = fromJS({
-    error: 'Could not get service endpoints. Server not avaiable',
+    error: 'Could not get service endpoints. Server not available',
     serviceEndpoints: []
   });
 

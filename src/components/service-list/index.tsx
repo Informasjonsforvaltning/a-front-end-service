@@ -6,12 +6,12 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import { useSelector } from 'react-redux';
 import { ServiceListItem } from './service-list-item';
-import { EndpointVersion } from '../../types';
+import { ServiceEndpoint } from '../../types';
 import { insertTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
 export const ServiceList = () => {
-  const endpointVersions: Array<EndpointVersion> = useSelector(
-    (state: any) => state.serviceEndpoints.get('serviceEndpoints').toJS()
+  const endpointVersions: Array<ServiceEndpoint> = useSelector((state: any) =>
+    state.serviceEndpoints.get('serviceEndpoints').toJS()
   );
   return (
     <Table {...insertTestId(TestIdValues.serviceList.component)}>

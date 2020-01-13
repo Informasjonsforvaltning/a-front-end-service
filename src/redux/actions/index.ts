@@ -1,13 +1,20 @@
-import { EndpointVersion, ServiceDetails } from '../../types';
+import { ServiceEndpoint, ServiceDetails } from '../../types';
 import {
   FETCH_SUCCEEDED,
   FETCH_FAILED,
   FETCH_DETAILS_FAILED,
-  FETCH_DETAILS_SUCCEEDED
+  FETCH_DETAILS_SUCCEEDED,
+  FETCH_REQUESTED
 } from './types';
 
+export function fetchServiceEnpoints() {
+  return {
+    type: FETCH_REQUESTED
+  };
+}
+
 export function fetchServiceEndpointsSucceded(
-  fetchedEndpoints: Array<EndpointVersion>
+  fetchedEndpoints: Array<ServiceEndpoint>
 ) {
   return {
     type: FETCH_SUCCEEDED,

@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { ServiceListItem } from './service-list-item/index';
-import { EndpointVersion } from '../../types';
+import { ServiceEndpoint } from '../../types';
 import { findByTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
 function setup(
-  versionProps: EndpointVersion = { name: 'some name', url: '1.0.9' }
+  versionProps: ServiceEndpoint = { name: 'some name', url: '1.0.9' }
 ) {
   const wrapper = shallow(
     <ServiceListItem key={versionProps.name} version={versionProps} />

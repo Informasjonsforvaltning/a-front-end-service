@@ -1,6 +1,11 @@
-export interface EndpointVersion {
+export interface ServiceEndpoint {
   name: string;
   url: string;
+}
+
+export interface ServiceEndpointCollection {
+  total: number;
+  serviceEndpoints: Array<ServiceEndpoint>;
 }
 
 export interface ServiceDetails {
@@ -10,4 +15,10 @@ export interface ServiceDetails {
   sha: string;
   versionId: string;
 }
+
+export interface Config {
+  apiBasePath: string;
+  authUrl?: string;
+}
+
 export * from './common';

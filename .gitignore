@@ -1,9 +1,7 @@
 .idea/
 .DS_Store
-./test/output
-mock/spec
+test/output
 dist/
 node_modules
 coverage/
-
-
+src/api/generated

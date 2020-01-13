@@ -1,11 +1,11 @@
 import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import { EndpointVersion } from '../../../types';
+import { ServiceEndpoint } from '../../../types';
 import { insertTestId, TestIdValues } from '../../../../test/utils/unitUtils';
 
 export interface Props {
-  version: EndpointVersion;
+  version: ServiceEndpoint;
 }
 
 export const ServiceListItem = ({ version: { name, url } }: Props) => (
