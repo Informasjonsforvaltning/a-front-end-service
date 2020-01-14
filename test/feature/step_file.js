@@ -2,9 +2,6 @@
 
 module.exports = function() {
   return actor({
-    loginAsAdmin() {
-      this.say('Login as admin');
-    },
     goToHomePage() {
       this.amOnPage('/');
     }

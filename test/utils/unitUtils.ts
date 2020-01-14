@@ -19,6 +19,12 @@ export const TestIdValues = {
   serviceList: {
     component: 'service-list-component',
     listItem: 'service-list-item-component'
+  },
+  header: {
+    component: 'header-component',
+    loginButton: 'login-btn',
+    logoutButton: 'logout-btn',
+    infoText: 'info-text'
   }
 };
 

@@ -6,11 +6,15 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider as ReduxProvider } from 'react-redux';
 import { ServiceList } from './components/service-list';
 import store from './redux/store';
+import { Header } from './components/header';
 
 render(
   <ReduxProvider store={store}>
     <AppContainer>
-      <ServiceList />
+      <div>
+        <Header />
+        <ServiceList />
+      </div>
     </AppContainer>
   </ReduxProvider>,
   document.getElementById('root')

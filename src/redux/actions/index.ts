@@ -4,7 +4,9 @@ import {
   FETCH_FAILED,
   FETCH_DETAILS_FAILED,
   FETCH_DETAILS_SUCCEEDED,
-  FETCH_REQUESTED
+  FETCH_REQUESTED,
+  LOGIN_SUCCEEDED,
+  LOGIN_FAILED
 } from './types';
 
 export function fetchServiceEnpoints() {
@@ -38,4 +40,17 @@ export function fetchServiceDetailsSucceded(
 }
 export function fetchServiceDetailsFailed(message: string) {
   return { type: FETCH_DETAILS_FAILED, error: message };
+}
+
+export function loginSucceded(user: string) {
+  return {
+    type: LOGIN_SUCCEEDED,
+    userInfo: user
+  };
+}
+export function loginFailed(message: string) {
+  return {
+    type: LOGIN_FAILED,
+    error: message
+  };
 }
