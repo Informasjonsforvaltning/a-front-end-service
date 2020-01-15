@@ -4,15 +4,20 @@ import TableRow from '@material-ui/core/TableRow';
 import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ServiceListItem } from './service-list-item';
 import { ServiceEndpoint } from '../../types';
 import { insertTestId, TestIdValues } from '../../../test/utils/unitUtils';
+import { FETCH_REQUESTED } from '../../redux/actions/types';
 
 export const ServiceList = () => {
   const endpointVersions: Array<ServiceEndpoint> = useSelector((state: any) =>
     state.serviceEndpoints.get('serviceEndpoints').toJS()
   );
+  const dispatch = useDispatch();
+  if (endpointVersions.length === 0) {
+    dispatch({ type: FETCH_REQUESTED });
+  }
   return (
     <Table {...insertTestId(TestIdValues.serviceList.component)}>
       <TableHead>
