@@ -1,6 +1,6 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 import { getApiConfig } from '../env';
-import { Endpoints } from './endpoints';
+import { Endpoints, errorMessage } from './endpoints';
 import { Result } from './types';
 import { ServiceEndpoint } from '../types';
 
@@ -24,7 +24,7 @@ export function getEndpoints(): Promise<Result> {
       return { status: result.status, data: result.data };
     })
     .catch(error => {
-      return { status: error.response.status };
+      return { error: errorMessage(error.response.status) };
     });
 
   return promise;
@@ -46,7 +46,7 @@ export function postEndpoint(
       };
     })
     .catch(error => {
-      return { status: error.response.status };
+      return { error: errorMessage(error.response.status) };
     });
   return promise;
 }

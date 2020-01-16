@@ -15,9 +15,14 @@ export const ServiceList = () => {
     state.serviceEndpoints.get('serviceEndpoints').toJS()
   );
   const dispatch = useDispatch();
-  if (endpointVersions.length === 0) {
-    dispatch({ type: FETCH_REQUESTED });
-  }
+  React.useEffect(() => {
+    if (endpointVersions.length === 0) {
+      dispatch({
+        type: FETCH_REQUESTED
+      });
+    }
+  }, []);
+
   return (
     <Table {...insertTestId(TestIdValues.serviceList.component)}>
       <TableHead>

@@ -33,6 +33,6 @@ export default function reducer(
       return state;
     }
     default:
-      return state;
+      return initialState;
   }
 }

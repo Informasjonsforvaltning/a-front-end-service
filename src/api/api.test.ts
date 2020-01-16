@@ -1,4 +1,4 @@
-import { Endpoints } from './endpoints';
+import { Endpoints, errorMessage } from './endpoints';
 import * as api from '.';
 import { ServiceEndpoint, ServiceEndpointCollection } from '../types';
 
@@ -73,14 +73,14 @@ describe('API intergration', () => {
         expect(result.status).toBe(201);
         expect(result.data.location).not.toBeUndefined();
       });
-      it('should return a Result object with error code on unauthorized request', async () => {
+      it('should return a Result object with an error message unauthorized request', async () => {
         const endpoint: ServiceEndpoint = {
           name: 'new-name',
           url: 'http://nothing-at-all'
         };
         const result = await api.postEndpoint(endpoint, '');
 
-        expect(result.status).toBe(401);
+        expect(result.error).toBe(errorMessage(401));
       });
     });
   });

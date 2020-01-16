@@ -8,17 +8,16 @@ import { FETCH_REQUESTED } from './actions/types';
 
 export function* fetchServiceEndpoints() {
   try {
-    const data = yield api.getEndpoints();
-    if (data.status === 200) {
-      yield console.log('IN FETCH SERVICE OK');
-      yield put(fetchServiceEndpointsSucceded(data.serviceEndpoints));
+    const response = yield api.getEndpoints();
+    if (response.status === 200) {
+      yield put(fetchServiceEndpointsSucceded(response.data.serviceEndpoints));
     } else {
-      yield put(fetchServiceDetailsFailed(data.error));
+      yield put(fetchServiceDetailsFailed(response.error));
     }
   } catch (error) {
     yield put(
       fetchServiceDetailsFailed(
-        'An unkown error occured while attempting to fecth data'
+        'An unknown error occured while attempting to fecth data from server'
       )
     );
   }

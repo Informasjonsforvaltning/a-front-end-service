@@ -4,12 +4,16 @@ import { Action } from 'redux';
 import { ServiceList } from '.';
 import { ServiceEndpoint } from '../../types';
 import { findByTestId, TestIdValues } from '../../../test/utils/unitUtils';
-import { FETCH_REQUESTED } from "../../redux/actions/types";
+import { FETCH_REQUESTED } from '../../redux/actions/types';
 
 let endpointList: Array<ServiceEndpoint> = [];
 const dispatchSpy = jest.fn().mockImplementation((any: Action) => {
   return any.type;
 });
+
+const useEffectSpy = jest
+  .spyOn(React, 'useEffect')
+  .mockImplementation(f => f());
 
 jest.mock('react-redux', () => ({
   useDispatch: () => {
@@ -24,14 +28,16 @@ function setup(): ShallowWrapper {
 }
 
 describe('Service list', () => {
-
   const listIds = TestIdValues.serviceList;
   let wrapper: ShallowWrapper;
   describe('When list is empty', () => {
     beforeEach(() => {
+      useEffectSpy.mockClear();
+      dispatchSpy.mockClear();
       wrapper = setup();
     });
     it('should call dispatch a fetch_requested event exactly once', () => {
+      expect(useEffectSpy.mock.calls.length).toBe(1);
       expect(dispatchSpy.mock.calls.length).toBe(1);
       expect(dispatchSpy.mock.results[0].value).toBe(FETCH_REQUESTED);
     });
@@ -46,18 +52,12 @@ describe('Service list', () => {
         .children();
       expect(listItems.length).toBe(0);
     });
-
-    afterAll(() => {
-      dispatchSpy.mockClear();
-    });
   });
 
   describe('When list has 3 elements', () => {
-    beforeAll(() => {
-      dispatchSpy.mockClear();
-    });
 
     beforeEach(() => {
+      dispatchSpy.mockClear();
       endpointList = [
         { name: 'some-name', url: 'http://somversion/hjdkh' },
         { name: 'other-name', url: 'http://othernam/hjdkh' },
@@ -80,9 +80,6 @@ describe('Service list', () => {
         .last()
         .children();
       expect(listItems.length).toBe(3);
-    });
-    afterAll(() => {
-      dispatchSpy.mockClear();
     });
   });
 });

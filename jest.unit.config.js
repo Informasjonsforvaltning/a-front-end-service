@@ -9,5 +9,6 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node', 'd.ts'],
   setupFiles: ['./test/utils/setupJest.ts'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{ts,tsx}']
+  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  //transformIgnorePatterns: ['node_modules/?!(redux-saga)/*.d.ts']
 };
