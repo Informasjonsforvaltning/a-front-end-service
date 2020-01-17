@@ -1,4 +1,4 @@
-import { ServiceEndpoint, ServiceDetails } from '../../types';
+import { ServiceDetails } from '../../types';
 import {
   FETCH_SUCCEEDED,
   FETCH_FAILED,
@@ -15,9 +15,7 @@ export function fetchServiceEnpoints() {
   };
 }
 
-export function fetchServiceEndpointsSucceded(
-  fetchedEndpoints: Array<ServiceEndpoint>
-) {
+export function fetchServiceEndpointsSucceded(fetchedEndpoints: {}) {
   return {
     type: FETCH_SUCCEEDED,
     payload: { serviceEndpoints: fetchedEndpoints }
@@ -26,7 +24,7 @@ export function fetchServiceEndpointsSucceded(
 export function fetchServiceEndpointsFailed(message: string) {
   return {
     type: FETCH_FAILED,
-    payload: { error: message }
+    error: message
   };
 }
 

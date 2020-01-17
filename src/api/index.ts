@@ -24,7 +24,8 @@ export function getEndpoints(): Promise<Result> {
       return { status: result.status, data: result.data };
     })
     .catch(error => {
-      return { error: errorMessage(error.response.status) };
+      const status = error.response.status || 0
+      return { error: errorMessage(status) };
     });
 
   return promise;

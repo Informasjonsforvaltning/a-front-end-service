@@ -13,9 +13,8 @@ export class Endpoints {
   }
 }
 
-export function errorMessage(status: number): string {
+export function errorMessage(status?: number): string {
   let message;
-
   switch (status) {
     case 400:
       message =
@@ -32,6 +31,7 @@ export function errorMessage(status: number): string {
       break;
     default:
       message = 'An unknown error occured. Please try again';
+      break;
   }
 
   return message;

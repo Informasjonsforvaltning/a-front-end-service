@@ -24,7 +24,7 @@ export default function reducer(
       return ret;
     }
     case FETCH_FAILED: {
-      return state.set('error', fromJS(action.payload.error));
+      return state.set('error', fromJS(action.error));
     }
     case FETCH_DETAILS_SUCCEEDED: {
       return state;

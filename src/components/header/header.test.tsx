@@ -3,17 +3,17 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import { Header } from '.';
 import { findByTestId, TestIdValues } from '../../../test/utils/unitUtils';
 
-let loggedIn = false;
+let mockloggedIn = false;
 
 function setup(authenticated: boolean): ShallowWrapper {
-  loggedIn = authenticated;
+  mockloggedIn = authenticated;
   const wrapper = shallow(<Header />);
   return wrapper;
 }
 
 jest.mock('react-redux', () => ({
   useDispatch: () => {},
-  useSelector: () => !!loggedIn
+  useSelector: () => mockloggedIn
 }));
 
 describe('Header component', () => {
@@ -37,7 +37,7 @@ describe('Header component', () => {
   });
   it('should logout button for authenticated users', () => {
     wrapper = setup(true)
-    loggedIn = true;
+    mockloggedIn = true;
     const component = findByTestId(wrapper, TestIdValues.header.logoutButton);
     expect(component.length).toBe(1);
   });

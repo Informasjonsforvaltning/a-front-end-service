@@ -1,8 +1,8 @@
 module.exports = {
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/js-with-babel',
   testEnvironment: 'node',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.[t|j]s?$': './test/utils/unit.transformer.js'
   },
   testRegex: '/*/.*\\.test.(ts|tsx)$',
   testPathIgnorePatterns: ['/src/api/', '/node_modules/'],
@@ -10,5 +10,6 @@ module.exports = {
   setupFiles: ['./test/utils/setupJest.ts'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{ts,tsx}'],
-  //transformIgnorePatterns: ['node_modules/?!(redux-saga)/*.d.ts']
+  coveragePathIgnorePatterns: ['src/api'],
+  transformIgnorePatterns: ['node_modules/?!(redux-saga)/*.d.ts']
 };

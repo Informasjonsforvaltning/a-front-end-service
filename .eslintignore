@@ -4,5 +4,6 @@ node_modules
 
 .gitignore
 .eslintignore
+babelrc.test.js
 test/feature
 package-lock.json

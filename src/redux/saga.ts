@@ -1,7 +1,8 @@
-import { put, all, takeLatest } from 'redux-saga/effects';
+import { put, all, takeLeading } from 'redux-saga/effects';
 import * as api from '../api';
 import {
   fetchServiceDetailsFailed,
+  fetchServiceEndpointsFailed,
   fetchServiceEndpointsSucceded
 } from './actions';
 import { FETCH_REQUESTED } from './actions/types';
@@ -12,7 +13,7 @@ export function* fetchServiceEndpoints() {
     if (response.status === 200) {
       yield put(fetchServiceEndpointsSucceded(response.data.serviceEndpoints));
     } else {
-      yield put(fetchServiceDetailsFailed(response.error));
+      yield put(fetchServiceEndpointsFailed(response.error));
     }
   } catch (error) {
     yield put(
@@ -24,5 +25,5 @@ export function* fetchServiceEndpoints() {
 }
 
 export default function* saga() {
-  yield all([takeLatest(FETCH_REQUESTED, fetchServiceEndpoints)]);
+  yield all([takeLeading(FETCH_REQUESTED, fetchServiceEndpoints)]);
 }

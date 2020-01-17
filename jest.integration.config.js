@@ -8,5 +8,5 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node', 'd.ts'],
   setupFiles: ['./test/utils/setupJest.ts'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{ts,tsx}']
+  collectCoverageFrom: ['src/api/*.{ts,tsx}']
 };
