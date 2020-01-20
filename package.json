@@ -18,6 +18,7 @@
     "commit": "git-cz",
     "build:prod": "npm-run-all build:webpack:prod",
     "build:webpack:prod": "webpack --config-register @babel/register --config webpack/prod.config.js",
+    "clear_jest": "jest --clearCache",
     "test": "jest",
     "test:w": "jest --watch --config jest.config.js",
     "test:unit": "jest --watch --config jest.unit.config.js",
