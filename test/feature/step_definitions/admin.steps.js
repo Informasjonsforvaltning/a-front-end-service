@@ -1,5 +1,5 @@
 const {I,adminPage} = inject();
-const defaultRowPath = "`//tr[text()=a-backend-service]`"
+const defaultRowPath = "//tr[text()=a-backend-service]"
 
 When('I login as admin', () => {
   adminPage.login();
@@ -19,6 +19,9 @@ Given('I am admin', () => {
 
 When('I see a-backend-service', () => {
   I.see(defaultRowPath)
+});
+When('I click Add service', () => {
+  I.click(`${defaultRowPath}//button[text()="Edit"]`)
 });
 
 When('I click Edit service', () => {

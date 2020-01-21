@@ -25,18 +25,18 @@ describe('Header component', () => {
     expect(component.length).toBe(1);
   });
   it('should show a login button for unauthenticated users', () => {
-    wrapper = setup(false)
+    wrapper = setup(false);
     const component = findByTestId(wrapper, TestIdValues.header.loginButton);
     expect(component.length).toBe(1);
   });
   it('should show user info for unauthenticated users', () => {
-    wrapper = setup(true)
-    const component = findByTestId(wrapper, TestIdValues.header.infoText);
+    wrapper = setup(true);
+    const component = findByTestId(wrapper, TestIdValues.header.infoText)
     expect(component.length).toBe(1);
-    expect(component.text()).toBe('Logged in as admin')
+    expect(component.text()).toContain('Logged in as admin');
   });
   it('should logout button for authenticated users', () => {
-    wrapper = setup(true)
+    wrapper = setup(true);
     mockloggedIn = true;
     const component = findByTestId(wrapper, TestIdValues.header.logoutButton);
     expect(component.length).toBe(1);

@@ -5,11 +5,8 @@ class AdminPage {
     this.serviceList = '<table>';
   }
   login(username,password){
-    I.click('//button[text()=login]');
-    I.waitForVisible('//form');
-    I.fillField('username',username);
-    I.fillField('password')
-    I.click('//button[text()=ok]')
+    I.goToHomePage();
+    I.click('Login')
   }
 }
 

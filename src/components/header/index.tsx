@@ -13,34 +13,30 @@ const useStyles = makeStyles({
     float: 'right'
   }
 });
-
 export const Header = () => {
   const classes = useStyles();
   const loggedIn: boolean = useSelector((state: any) => {
-    return state.authState.isLoggedIn;
+    return state.authState.get('loggedIn');
   });
   const dispatch = useDispatch();
-  let button;
-  let infoText;
+  let content;
   if (loggedIn) {
-    button = (
-      <Button
-        className={classes.button}
-        onClick={() => dispatch({ type: LOGOUT_REQUESTED })}
-        {...insertTestId(TestIdValues.header.logoutButton)}
-      >
-        Logout
-      </Button>
-    );
-    infoText = (
+    content = (
       <Card {...insertTestId(TestIdValues.header.infoText)}>
         <CardContent>
           <Typography>Logged in as admin</Typography>
+          <Button
+            className={classes.button}
+            onClick={() => dispatch({ type: LOGOUT_REQUESTED })}
+            {...insertTestId(TestIdValues.header.logoutButton)}
+          >
+            Logout
+          </Button>
         </CardContent>
       </Card>
     );
   } else {
-    button = (
+    content = (
       <Button
         className={classes.button}
         onClick={() => dispatch({ type: LOGIN_REQUESTED })}
@@ -50,10 +46,5 @@ export const Header = () => {
       </Button>
     );
   }
-  return (
-    <div {...insertTestId(TestIdValues.header.component)}>
-      {infoText}
-      {button}
-    </div>
-  );
+  return <div {...insertTestId(TestIdValues.header.component)}>{content}</div>;
 };

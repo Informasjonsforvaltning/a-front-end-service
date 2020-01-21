@@ -1,26 +1,36 @@
 import React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
+import { render, shallow, ShallowWrapper } from 'enzyme';
 import { Action } from 'redux';
 import { ServiceList } from '.';
-import { ServiceEndpoint } from '../../types';
 import { findByTestId, TestIdValues } from '../../../test/utils/unitUtils';
 import { FETCH_REQUESTED } from '../../redux/actions/types';
+import { ServiceEndpoint } from '../../types';
 
-let endpointList: Array<ServiceEndpoint> = [];
+interface TestState {
+  loggedIn: boolean;
+  endpointVersions: Array<ServiceEndpoint>;
+}
+
 const dispatchSpy = jest.fn().mockImplementation((any: Action) => {
   return any.type;
 });
+
+let testState: TestState = { loggedIn: false, endpointVersions: [] };
 
 const useEffectSpy = jest
   .spyOn(React, 'useEffect')
   .mockImplementation(f => f());
 
-jest.mock('react-redux', () => ({
-  useDispatch: () => {
-    return dispatchSpy;
-  },
-  useSelector: () => endpointList
-}));
+jest.mock('react-redux', () => {
+  return {
+    useDispatch: () => {
+      return dispatchSpy;
+    },
+    useSelector: () => {
+      return testState;
+    }
+  };
+});
 
 function setup(): ShallowWrapper {
   const wrapper = shallow(<ServiceList />);
@@ -45,8 +55,9 @@ describe('Service list', () => {
       const component = findByTestId(wrapper, listIds.component);
       expect(component.length).toBe(1);
     });
+    it('should not have an admin section for public users', () => {});
     it('should have empty list', () => {
-      const listItems = wrapper
+      const listItems = findByTestId(wrapper, listIds.table)
         .children()
         .last()
         .children();
@@ -55,14 +66,16 @@ describe('Service list', () => {
   });
 
   describe('When list has 3 elements', () => {
-
     beforeEach(() => {
       dispatchSpy.mockClear();
-      endpointList = [
-        { name: 'some-name', url: 'http://somversion/hjdkh' },
-        { name: 'other-name', url: 'http://othernam/hjdkh' },
-        { name: 'yesno-name', url: 'http://yesno/hjdkh' }
-      ];
+      testState = {
+        loggedIn: false,
+        endpointVersions: [
+          { name: 'some-name', url: 'http://somversion/hjdkh' },
+          { name: 'other-name', url: 'http://othernam/hjdkh' },
+          { name: 'yesno-name', url: 'http://yesno/hjdkh' }
+        ]
+      };
       wrapper = setup();
     });
     it('should render without errors', () => {
@@ -75,11 +88,59 @@ describe('Service list', () => {
     });
 
     it('should have 3 elements in list', () => {
-      const listItems = wrapper
+      const listItems = findByTestId(wrapper, listIds.table)
         .children()
         .last()
         .children();
       expect(listItems.length).toBe(3);
+    });
+  });
+  describe('When logged in as admin', () => {
+    let renderWrapper: Cheerio;
+    beforeEach(() => {
+      useEffectSpy.mockClear();
+      dispatchSpy.mockClear();
+      testState = {
+        loggedIn: true,
+        endpointVersions: [
+          { name: 'some-name', url: 'http://somversion/hjdkh' },
+          { name: 'other-name', url: 'http://othernam/hjdkh' },
+          { name: 'yesno-name', url: 'http://yesno/hjdkh' }
+        ]
+      };
+      renderWrapper = render(<ServiceList />);
+    });
+
+    it('should have an admin section for admin users', () => {
+      const adminSection = findByTestId(
+        renderWrapper,
+        TestIdValues.adminContent.component
+      );
+      expect(adminSection.length).toBe(1);
+    });
+  });
+  describe('When logged in as admin', () => {
+    let renderWrapper: Cheerio;
+    beforeEach(() => {
+      useEffectSpy.mockClear();
+      dispatchSpy.mockClear();
+      testState = {
+        loggedIn: false,
+        endpointVersions: [
+          { name: 'some-name', url: 'http://somversion/hjdkh' },
+          { name: 'other-name', url: 'http://othernam/hjdkh' },
+          { name: 'yesno-name', url: 'http://yesno/hjdkh' }
+        ]
+      };
+      renderWrapper = render(<ServiceList />);
+    });
+
+    it('should not have an admin section for public users', () => {
+      const adminSection = findByTestId(
+        renderWrapper,
+        TestIdValues.adminContent.component
+      );
+      expect(adminSection.length).toBe(0);
     });
   });
 });

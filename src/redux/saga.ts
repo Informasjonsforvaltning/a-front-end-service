@@ -3,9 +3,15 @@ import * as api from '../api';
 import {
   fetchServiceDetailsFailed,
   fetchServiceEndpointsFailed,
-  fetchServiceEndpointsSucceded
+  fetchServiceEndpointsSucceded,
+  loginSucceded,
+  logoutSucceded
 } from './actions';
-import { FETCH_REQUESTED } from './actions/types';
+import {
+  FETCH_REQUESTED,
+  LOGIN_REQUESTED,
+  LOGOUT_REQUESTED
+} from './actions/types';
 
 export function* fetchServiceEndpoints() {
   try {
@@ -24,6 +30,18 @@ export function* fetchServiceEndpoints() {
   }
 }
 
+export function* loginRequested() {
+  yield put(loginSucceded('Tadda'));
+}
+
+export function* logoutRequested() {
+  yield put(logoutSucceded());
+}
+
 export default function* saga() {
-  yield all([takeLeading(FETCH_REQUESTED, fetchServiceEndpoints)]);
+  yield all([
+    takeLeading(FETCH_REQUESTED, fetchServiceEndpoints),
+    takeLeading(LOGIN_REQUESTED, loginRequested),
+    takeLeading(LOGOUT_REQUESTED, logoutRequested)
+  ]);
 }

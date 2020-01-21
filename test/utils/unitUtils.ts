@@ -1,8 +1,10 @@
-import { ShallowWrapper } from 'enzyme';
-import { createStore } from 'redux';
-import rootReducer from '../../src/redux/reducers';
+let currentIndex = 0;
+let indexedIds: string[] = [];
 
-export function findByTestId(wrapper: ShallowWrapper, testId: string) {
+export interface Wrapper {
+  find(selector: string): any;
+}
+export function findByTestId(wrapper: Wrapper, testId: string) {
   const selector = `[data_test="${testId}"]`;
   return wrapper.find(selector);
 }
@@ -14,11 +16,32 @@ export interface TestIdProp {
 export function insertTestId(testId: string): TestIdProp {
   return { data_test: testId };
 }
+export function insertIndexedTestId(testId: string): TestIdProp {
+  const id = testId + currentIndex;
+  indexedIds.push(id);
+  currentIndex += 1;
+  return { data_test: id };
+}
+
+export function getIndexedIds(): string[] {
+  return indexedIds;
+}
+export function clearIndexedIds(): void {
+  indexedIds = [];
+}
 
 export const TestIdValues = {
   serviceList: {
     component: 'service-list-component',
-    listItem: 'service-list-item-component'
+    listItem: 'service-list-item-component',
+    table: 'service-list-table',
+    editButtons: 'service-item-edit-button'
+  },
+  adminContent: {
+    component: 'service-admin-content',
+    addButton: 'service-admin-add-button',
+    addForm: 'service-add-form',
+    cancelButton: 'service-cancel-button'
   },
   header: {
     component: 'header-component',
@@ -27,8 +50,3 @@ export const TestIdValues = {
     infoText: 'info-text'
   }
 };
-
-export function storeFactory(initialState: any) {
-  const store = createStore(rootReducer, initialState);
-  return store;
-}
