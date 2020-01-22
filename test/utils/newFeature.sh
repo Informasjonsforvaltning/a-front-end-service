@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo feature prefix:
 read prefix
 echo feature description:

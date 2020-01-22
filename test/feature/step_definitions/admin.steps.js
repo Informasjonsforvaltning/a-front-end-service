@@ -6,18 +6,18 @@ When('I login as admin', () => {
 });
 
 Then('I can see Add service button', () => {
-  I.see('Add','//button')
+  I.see('ADD SERVICE','button')
 });
 
 Then('I can see Edit service button on table rows', () => {
-  I.see('Edit', '//tr//button[text()=Edit]');
+  I.see('Edit', 'button');
 });
 
 Given('I am admin', () => {
   adminPage.login();
 });
 
-When('I see a-backend-service', () => {
+When('I see first element in list ', () => {
   I.see(defaultRowPath)
 });
 When('I click Add service', () => {
@@ -35,9 +35,8 @@ When(/^I fill field url https:\/\/github\.com\/Informasjonsforvaltning\/a-backen
 When('I click OK', () => {
   I.click('//button[text()=OK]')
 });
+When('I see first element in list', () => {
 
-Then(/^a-backend-service has a new url like https:\/\/github\.com\/Informasjonsforvaltning\/a-backend-service$/, () => {
-  I.see('//tr[text()=https://github.com/Informasjonsforvaltning/a-backend-service]]')
 });
 
 When('I fill field url with {string}', (url) => {
@@ -47,3 +46,8 @@ When('I fill field url with {string}', (url) => {
 Then('I see error message {string}', (message) => {
   I.see(message)
 });
+
+Then(/^first element has a new url like https:\/\/github\.com\/Informasjonsforvaltning\/a-backend-service$/, () => {
+
+});
+

@@ -39,15 +39,15 @@ Scenario Outline: Attempting to add service with errors
 
 Scenario: Successfully updating service
   Given I am admin
-    When I see a-backend-service
+    When I see first element in list
       And I click Edit service
       And I fill field url https://github.com/Informasjonsforvaltning/a-backend-service
       And I click OK
-        Then a-backend-service has a new url like https://github.com/Informasjonsforvaltning/a-backend-service
+        Then first element has a new url like https://github.com/Informasjonsforvaltning/a-backend-service
 
 Scenario: Attempting to update url with wrong format
   Given I am admin
-    When I see a-backend-service
+    When I see first element in list
     And I click Edit service
     And I fill field url with "url"
       | url              |

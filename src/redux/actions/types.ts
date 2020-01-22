@@ -9,3 +9,4 @@ export const LOGIN_SUCCEEDED = 'LOGIN_SUCCEEDED' as const;
 export const LOGIN_FAILED = 'LOGIN_FAILED' as const;
 export const LOGOUT_REQUESTED = 'LOGOUT_REQUESTED' as const;
 export const LOGOUT_SUCCEDED = 'LOGOUT_SUCCEEDED' as const;
+export const UPDATE_REQUEST = 'UPDATE_REQUEST' as const

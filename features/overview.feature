@@ -9,14 +9,14 @@ Feature: Overview of service
   Given I am a public user 
   And I am on homepage
 
-  Scenario Outline: See all services 
+  Scenario Outline: See all services
       Then I can see <total> table rows
       And The table contains <name>
       And <name> has an url
       And  <name> has a version
-     Examples: 
+     Examples:
    |  total  | name                 |
-   |  1      | "a-backend-service"  |    
+   |  1      | "a-backend-service"  |
 
   Scenario: See details of service
     When I click a-backend-service

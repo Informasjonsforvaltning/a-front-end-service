@@ -18,7 +18,7 @@ export interface ServiceDetails {
 
 export interface Config {
   apiBasePath: string;
-  authUrl?: string;
+  authUrl: string;
 }
 
 export * from './common';

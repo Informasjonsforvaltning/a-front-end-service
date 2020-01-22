@@ -23,7 +23,7 @@ export function insertIndexedTestId(testId: string): TestIdProp {
   return { data_test: id };
 }
 
-export function getIndexedIds(): string[] {
+export function getIndexedTestIds(): string[] {
   return indexedIds;
 }
 export function clearIndexedIds(): void {
@@ -35,7 +35,8 @@ export const TestIdValues = {
     component: 'service-list-component',
     listItem: 'service-list-item-component',
     table: 'service-list-table',
-    editButtons: 'service-item-edit-button'
+    editButtons: 'service-item-edit-button',
+    editForm: 'service-item-edit-form'
   },
   adminContent: {
     component: 'service-admin-content',
