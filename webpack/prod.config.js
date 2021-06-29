@@ -4,6 +4,10 @@ import baseConfig from './base.config';
 export default merge(baseConfig, {
   mode: 'production',
   devtool: 'none',
+  plugins: [
+    'babel-plugin-jsx-remove-data-test-id',
+    { attributes: 'data_test' }
+  ],
   output: {
     filename: '[name].[contenthash].js'
   },
